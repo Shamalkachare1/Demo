@@ -1,0 +1,101 @@
+package TESTCase;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Proxy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.appium.java_client.functions.ExpectedCondition;
+
+public class HomePage {  
+  
+    
+	public static void main(String[] args) throws InterruptedException {  
+    	
+    	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Tnluser\\Downloads\\chromedriver_win32 (3)\\chromedriver.exe");
+    	WebDriver driver =new ChromeDriver();
+    	ChromeOptions options = new ChromeOptions();
+    	driver.get("https://console.uat.asians.group/#/domain/list");	
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+  
+		
+		System.out.println("*********** Teste case 1,2,and 3 ****************************************");
+    	wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id=\"kc-header-wrapper\"]/span")));
+    	String pagetitle= driver.findElement(By.xpath("//*[@id=\"kc-header-wrapper\"]/span")).getText();
+    	System.out.println(pagetitle);
+    	
+    	if(pagetitle.equalsIgnoreCase("Asians User System"))
+        {
+        	System.out.println("Page title is Asians User System and Test case Passed");
+        }
+        else
+        {
+        	System.out.println("Test case failed");
+        }
+    	
+    	System.out.println("*********** Teste case Four ****************************************");
+    	
+    	String SignIn= driver.findElement(By.id("kc-page-title")).getText();
+    	System.err.println(SignIn);
+    	if(SignIn.equalsIgnoreCase("Sign in to your account"))
+    		System.out.println("Test Case Passed");
+    	else {
+    		System.out.println("Test case failed");
+			}
+    	
+    	
+System.out.println("*********** Teste case Five ****************************************");
+    	
+    	driver.findElement(By.id("username")).sendKeys("Shamalkachare775@gmail.com");
+    	System.out.println("User is able to provide the username");
+    	driver.findElement(By.id("password")).sendKeys("cyz123@");
+    	System.out.println("User is able to provide the password");
+    	Thread.sleep(3);
+    	System.out.println("Test Case Passed");
+    	
+System.out.println("*********** Teste case Six ****************************************");    	
+    	
+    	Boolean SignInBtn=driver.findElement(By.id("kc-login")).isEnabled();
+    	if(SignInBtn==true)
+    	{
+    		System.out.println("Sign In Button is Enabled and Clickbale");
+    	System.out.println("Test Case Passed");
+    	}
+    	else {
+    		System.out.println("Sign In Button is disabled");
+		}
+    		
+ System.out.println("*********** Teste case eight ****************************************");    	
+ 	driver.findElement(By.id("username")).clear();
+	driver.findElement(By.id("password")).clear();
+	Thread.sleep(3);
+	driver.findElement(By.id("kc-login")).submit();
+	String errMsg= driver.findElement(By.id("input-error")).getText();
+	System.out.println(errMsg +"\t Error msg is displayed");
+	System.out.println("Test Case Passed");
+ Thread.sleep(3);
+ 
+ 
+ System.out.println("*********** Teste case Nine ****************************************");    	
+	driver.findElement(By.id("username")).clear();
+	Thread.sleep(3);
+	driver.findElement(By.id("password")).sendKeys("cyz123@");
+	driver.findElement(By.id("kc-login")).submit();
+	String errMsg1= driver.findElement(By.id("input-error")).getText();
+	System.out.println(errMsg +"\t Error msg is displayed");
+	System.out.println("Test Case Passed");
+	
+	
+	WebDriverWait wait1 = new WebDriverWait(driver,Duration.ofSeconds(10));
+    	driver.close();
+    			
+    
+    }
+    
+    }

@@ -1,0 +1,11 @@
+
+public class reverseStrChar
+{
+public static void main(String r[])
+{
+String str1="";
+String reverse="";
+Char[] str=str1.toChar
+
+}
+}

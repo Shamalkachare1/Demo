@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;HomePage.java&apos; to &apos;TESTCase&apos;" description="Move &apos;HomePage.java&apos; to &apos;TESTCase&apos;" destination="src/main/java/TESTCase" element1="src/main/java/HomePage.java" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1675680212015" updateReferences="true"/>
+</session>

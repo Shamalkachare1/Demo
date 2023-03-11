@@ -1,0 +1,25 @@
+public class reverseStr
+{
+	public static void main(String a[])
+	{
+		String str ="test the demo file";
+		String reverse="";
+		
+		for(int i=str.length()-1; i>=0; i--)
+		{
+			reverse=reverse+str.charAt(i);
+		 do
+		 {
+			System.out.println(a[i]); 
+		 }while(i==2);
+			
+		}
+		
+	
+		
+		//System.out.println(reverse);
+		
+	}
+	
+
+}

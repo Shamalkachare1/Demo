@@ -1,0 +1,44 @@
+package Pages.StepDefinition;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import net.bytebuddy.asm.Advice.OffsetMapping.ForThrowable;
+
+public class Steps {				
+
+    WebDriver driver;			
+    		
+    @Given("^Open the browser and hit the given URL$")					
+    public void open_the_Firefox_and_launch_the_application() throws Throwable							
+    {
+    	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Tnluser\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");				
+        driver= new ChromeDriver();					
+        driver.manage().window().maximize();			
+        driver.get("https://console.uat.asians.group/#/domain/list");		
+    }
+    @Then("^Verify the page title$")	
+    public void Verify_the_page(DataTable table) throws InterruptedException
+    {
+    	List<String> pageTitle = table.asList();
+    	 String title = pageTitle.get(0);
+    	 String ActualTitle = driver.findElement(By.id("kc-header-wrapper")).getText();
+    	 System.out.println(ActualTitle);
+    	 if(title==ActualTitle)
+    	 {
+    		 System.out.println("Title is as per spec" );
+    	 }
+    	 else {
+			System.out.println("Title is not matching");
+		}
+    	 
+    }
+}

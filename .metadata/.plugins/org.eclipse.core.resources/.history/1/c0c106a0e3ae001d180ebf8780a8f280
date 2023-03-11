@@ -1,0 +1,58 @@
+package Pages.StepDefinition;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Proxy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.BeforeStep;
+
+import java.io.IOException;
+import java.time.Duration;
+
+public class testBase
+{
+	public static WebDriver driver = null;
+	
+
+	@BeforeStep
+    public void beforeTest()  throws IOException{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Tnluser\\Downloads\\chromedriver_win32 (3)\\chromedriver.exe");
+		WebDriver driver =new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		Proxy proxy = new Proxy();
+		proxy.setHttpProxy("myhttpproxy:6949");
+		options.setCapability("proxy", proxy);
+    	
+    }
+	
+
+	
+public void initialize() throws IOException{
+
+
+	
+	driver.manage().window().maximize();
+    driver.get("https://console.uat.asians.group/#/domain/list");	
+    WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+    //	driver.Timeout.explicitlyWait();
+    wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id=\"kc-header-wrapper\"]/span")));
+	String pagetitle= driver.findElement(By.xpath("//*[@id=\"kc-header-wrapper\"]/span")).getText();
+	System.out.println(pagetitle);
+	if(pagetitle.equalsIgnoreCase("Asians User System"))
+    {
+    	System.out.println("Page title is Asians User System and Test case Passed");
+    }
+    else
+    {
+    	System.out.println("Test case failed");
+    }
+    	
+	}
+	
+	 }
+
+

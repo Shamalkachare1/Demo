@@ -1,0 +1,15 @@
+import requests
+import json
+import jsonpath
+
+
+url= "https://reqres.in/api/users?page=2"
+
+response = requests.get(url)
+print(response)
+
+json_response = json.loads(response.text)
+
+#print(response.content)
+pages= jsonpath.jsonpath(json_response,'total_pages')
+assert pages[0]==4

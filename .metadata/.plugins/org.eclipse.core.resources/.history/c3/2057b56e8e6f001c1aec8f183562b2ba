@@ -1,0 +1,21 @@
+import requests
+import json
+import jsonpath
+
+url= "https://reqres.in/api/users?page=2"
+
+response = requests.get(url)
+print(response)
+
+json_response = (json.dumps(response.json(), indent=4))
+print(json_response)
+
+json_response1= json.loads(response.text)
+#print(response.content)
+
+pages= jsonpath.jsonpath(json_response1,'total_pages')
+if (pages[0]==2): print(pages)
+
+else: 
+    print ("Error while validating the condition. Total pages are:")
+    print (pages)

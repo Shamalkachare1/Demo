@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Test/src/main/java/reverseStr Char&apos; to &apos;reverseStrChar.java&apos;" description="Rename resource &apos;reverseStr Char&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/reverseStr Char" name="reverseStrChar.java" stamp="1677748349370" updateReferences="true"/>
+</session>
